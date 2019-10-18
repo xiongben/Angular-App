@@ -5,13 +5,20 @@
   </label>
 </div>
 <ul>
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
+  <li *ngFor="let hero of heroes" (click)="selectHero(hero)">
+    <!-- <a routerLink="/detail/{{hero.id}}"> -->
+    <a>
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
   </li>
 </ul>
-<!-- <div *ngIf="selectedHero">
+<div>
+  <input #box (keyup)="onkey(box.value)"/>
+  <p>{{value}}</p>
+  
+</div>
+<h1>{{testvalue}}</h1>
+<div *ngIf="selectedHero">
 
   <h2>{{selectedHero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedHero.id}}</div>
@@ -21,5 +28,5 @@
     </label>
   </div>
 
-</div> -->
-<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import {Hero} from '../hero';
 import {HEROES} from '../mock-heroes';
 import { from } from 'rxjs';
@@ -16,6 +16,9 @@ export class HeroesComponent implements OnInit {
   };
   heros = HEROES;
   heroes: Hero[];
+  value: string;
+  testvalue: string;
+  selectedHero: Hero;
   constructor(
     private heroService: HeroService
   ) { 
@@ -23,8 +26,13 @@ export class HeroesComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("init===")
     this.getHeroes();
   }
+  
+  // ngAfterViewInit() {
+
+  // }
 
   getHeroes(): void {
     this.heroService.getHeroes()
@@ -34,4 +42,11 @@ export class HeroesComponent implements OnInit {
     });
   }
 
+  onkey(v): void {
+    this.value += v + ' | ';
+  }
+  
+  selectHero(hero): void {
+    this.selectedHero = hero;
+  }
 }

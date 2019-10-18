@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input ,SimpleChanges} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../hero';
@@ -20,7 +20,16 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit() {
     this.getHero();
   }
-  
+  //生命周期钩子
+  ngOnChanges(changes: SimpleChanges) {
+      let chng = changes.hero;
+      let cur  = JSON.stringify(chng.currentValue);
+      let prev = JSON.stringify(chng.previousValue);
+      console.log(`currentValue = ${cur}, previousValue = ${prev}`);
+  }
+  ngDoCheck() {
+    // console.log(this.hero)
+  }
   getHero():void{
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)

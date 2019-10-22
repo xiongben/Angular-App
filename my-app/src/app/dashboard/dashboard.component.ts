@@ -10,7 +10,7 @@ import { timeout } from 'q';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  public xiongben: string = "XIONGBEN";
   heroes: Hero[] = [];
  
   constructor(private heroService: HeroService) { }
@@ -19,7 +19,10 @@ export class DashboardComponent implements OnInit {
     this.getHeroes();
     this.test3();
   }
- 
+  onVoted(num: number){
+    console.log(num);
+    console.log("vote == father component");
+  }
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes.slice(1, 5));
@@ -39,7 +42,7 @@ export class DashboardComponent implements OnInit {
   }
   test2(): void {
     function sequenceSubscriber(observer) {
-      console.log("===========")
+      // console.log("===========")
       const seq = [1, 2, 3];
       let timeoutId;
      
@@ -103,7 +106,7 @@ export class DashboardComponent implements OnInit {
           console.log("=========")
           timeoutId = doSequence({
              next(val) {observers.forEach(obs => {
-              console.log(observers);
+              // console.log(observers);
               obs.next(val);
              })},
              complete() {observers.forEach(obs => obs.complete())}

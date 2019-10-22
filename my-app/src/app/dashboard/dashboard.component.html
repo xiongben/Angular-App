@@ -6,3 +6,5 @@
     </div>
   </a>
 </div>
+<button (click)="childtest.testfn()">voke child method</button>
+<app-child-test [name]="xiongben" (voted)="onVoted($event)" #childtest></app-child-test>

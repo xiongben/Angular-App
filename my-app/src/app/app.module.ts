@@ -10,6 +10,9 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChildTestComponent } from './child-test/child-test.component';
+import { HighlightDirective } from './highlight.directive';
+import { FlyingPipe } from './flying.pipe';
+import { from } from 'rxjs';
 
 @NgModule({
    declarations: [
@@ -18,7 +21,9 @@ import { ChildTestComponent } from './child-test/child-test.component';
       HeroDetailComponent,
       MessagesComponent,
       DashboardComponent,
-      ChildTestComponent
+      ChildTestComponent,
+      HighlightDirective,
+      FlyingPipe,
    ],
    imports: [
       BrowserModule,

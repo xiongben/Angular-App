@@ -1,5 +1,11 @@
 <div class="childbox">
   <h2>child test now</h2>
   <button (click)="vote()">button</button>
+  <img src="./assets/static/aa.png">
+  <p [appHighlight]="color">hightlight text test</p>
+  <h2>{{birthday | date:"MM/dd/yy"}}</h2>
+  <div>
+    <p *ngFor="let item of testarr">{{item | flying}}</p>
+  </div>
   <!-- <p>{{name}}</p> -->
 </div>

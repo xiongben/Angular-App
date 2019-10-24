@@ -1,11 +1,30 @@
 <div class="childbox">
   <h2>child test now</h2>
   <button (click)="vote()">button</button>
-  <img src="./assets/static/aa.png">
+  <img src="./assets/static/aa.png" class="img1">
   <p [appHighlight]="color">hightlight text test</p>
   <h2>{{birthday | date:"MM/dd/yy"}}</h2>
   <div>
-    <p *ngFor="let item of testarr">{{item | flying}}</p>
+    <span *ngFor="let item of testarr">{{item | flying}} ,</span>
+  </div>
+  <div class="formbox">
+    <input type="text" [formControl]="formName">
+    <p>value: {{formName.value}}</p>
+    <button (click)="upformdata()">up input data</button>
+    <p>==========</p>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+      <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+      </label>
+    
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+      </label>
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
   </div>
   <!-- <p>{{name}}</p> -->
 </div>

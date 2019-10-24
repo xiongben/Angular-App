@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-child-test',
@@ -9,6 +10,11 @@ export class ChildTestComponent implements OnInit {
   private _name: string;
   public color: string = "red";
   public birthday: Date = new Date(1993, 3, 19);
+  public formName = new FormControl();
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
   testarr: number[] = [112,334,23,45,678,456,22,12,565];
   // @Input() name: string;
   @Output() voted = new EventEmitter<number>();
@@ -31,5 +37,14 @@ export class ChildTestComponent implements OnInit {
   }
   testfn(): void {
     console.log("child test method");
+  }
+
+  upformdata(): void {
+    this.formName.setValue("xiongben");
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.profileForm.value);
   }
 }

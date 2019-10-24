@@ -2,3 +2,10 @@
 .childbox{
     background: yellow;
 }
+.img1{
+    width: 100px;
+    height: 100px;
+}
+.formbox{
+    border: 1px solid red;
+}

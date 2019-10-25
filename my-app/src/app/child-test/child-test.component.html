@@ -1,12 +1,12 @@
 <div class="childbox">
-  <h2>child test now</h2>
+  <!-- <h2>child test now</h2>
   <button (click)="vote()">button</button>
   <img src="./assets/static/aa.png" class="img1">
   <p [appHighlight]="color">hightlight text test</p>
   <h2>{{birthday | date:"MM/dd/yy"}}</h2>
   <div>
     <span *ngFor="let item of testarr">{{item | flying}} ,</span>
-  </div>
+  </div> -->
   <div class="formbox">
     <input type="text" [formControl]="formName">
     <p>value: {{formName.value}}</p>
@@ -27,4 +27,21 @@
     </form>
   </div>
   <!-- <p>{{name}}</p> -->
+  <div>
+    <input id="xbname" name="xbname" 
+       required minlength="5" appForbiddenName="bob"
+       [(ngModel)]="xbname" #xbnames="ngModel"
+    >
+    <div *ngIf="xbnames.invalid && (xbnames.dirty || xbnames.touched)">
+        <div *ngIf="xbnames.errors.required">
+            Name is required
+        </div>
+        <div *ngIf="xbnames.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="xbnames.errors.forbiddenName">
+          Name cannot be Bob.
+        </div>
+    </div>
+  </div>
 </div>

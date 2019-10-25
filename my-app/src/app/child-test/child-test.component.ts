@@ -11,6 +11,9 @@ export class ChildTestComponent implements OnInit {
   public color: string = "red";
   public birthday: Date = new Date(1993, 3, 19);
   public formName = new FormControl();
+  public xbname: string;
+  
+  
   profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),

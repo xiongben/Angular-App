@@ -11,6 +11,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChildTestComponent } from './child-test/child-test.component';
 import { HighlightDirective } from './highlight.directive';
+import { ForbiddenNameDirective } from './forbidden-name.directive';
 import { FlyingPipe } from './flying.pipe';
 import { from } from 'rxjs';
 
@@ -23,6 +24,7 @@ import { from } from 'rxjs';
       DashboardComponent,
       ChildTestComponent,
       HighlightDirective,
+      ForbiddenNameDirective,
       FlyingPipe,
    ],
    imports: [

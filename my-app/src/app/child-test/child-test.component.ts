@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { HttpTestService} from '../http-test.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-child-test',
@@ -21,11 +23,15 @@ export class ChildTestComponent implements OnInit {
   testarr: number[] = [112,334,23,45,678,456,22,12,565];
   // @Input() name: string;
   @Output() voted = new EventEmitter<number>();
-  constructor() {
-    console.log(this.birthday)
+  constructor(
+    private httptestservice: HttpTestService
+  ) {
+    // console.log(this.birthday)
   }
  
   ngOnInit() {
+    // this.getHttpData();
+    this.getHttpResponse();
   }
 
   @Input()
@@ -49,5 +55,16 @@ export class ChildTestComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.profileForm.value);
+  }
+
+  getHttpData(){
+    this.httptestservice.getTestData().subscribe( res => {
+      console.log(res);
+    })
+  }
+  getHttpResponse(){
+    this.httptestservice.getTestResponse().subscribe( res => {
+      console.log(res);
+    })
   }
 }

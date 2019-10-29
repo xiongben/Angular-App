@@ -15,6 +15,7 @@ import { HighlightDirective } from './highlight.directive';
 import { ForbiddenNameDirective } from './forbidden-name.directive';
 import { FlyingPipe } from './flying.pipe';
 import { from } from 'rxjs';
+import { ElModule } from 'element-angular'
 
 @NgModule({
    declarations: [
@@ -30,11 +31,14 @@ import { from } from 'rxjs';
    ],
    imports: [
       BrowserModule,
+      BrowserAnimationsModule,
+      ElModule.forRoot(),
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
-      BrowserAnimationsModule
+      
+      
    ],
    providers: [],
    bootstrap: [

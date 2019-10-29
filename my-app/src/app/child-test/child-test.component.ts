@@ -11,6 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { HttpTestService} from '../http-test.service';
 import { from,  } from 'rxjs';
 
+
 @Component({
   selector: 'app-child-test',
   templateUrl: './child-test.component.html',
@@ -67,7 +68,9 @@ export class ChildTestComponent implements OnInit {
   toggle() {
     this.isopen = !this.isopen;
   }
-   
+  handle($event){
+    
+  }
   vote(): void {
     console.log("vote child");
     this.voted.emit(10);

@@ -7,6 +7,10 @@
   <div>
     <span *ngFor="let item of testarr">{{item | flying}} ,</span>
   </div> -->
+  <div [@openClose]="isopen?'open' : 'closed'" class="open-close-container">
+    <p>the box is now {{isopen? "open": "closed"}}</p>
+    <button (click)="toggle()">toggle</button>
+  </div>
   <div class="formbox">
     <input type="text" [formControl]="formName">
     <p>value: {{formName.value}}</p>

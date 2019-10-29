@@ -1,4 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpTestService} from '../http-test.service';
 import { from,  } from 'rxjs';
@@ -6,7 +14,23 @@ import { from,  } from 'rxjs';
 @Component({
   selector: 'app-child-test',
   templateUrl: './child-test.component.html',
-  styleUrls: ['./child-test.component.css']
+  styleUrls: ['./child-test.component.css'],
+  animations: [
+    trigger('openClose',[
+      state('open',style({
+        height: '200px',
+        opacity:1,
+        backgroundColor: 'yellow'
+      })),
+      state('closed',style({
+        height: '100px',
+        opacity: 0.5,
+        backgroundColor: 'green',
+      })),
+      transition('open => closed', animate('1s')),
+      transition('closed => open', [animate('0.5s')])
+    ])
+  ],
 })
 export class ChildTestComponent implements OnInit {
   private _name: string;
@@ -14,7 +38,7 @@ export class ChildTestComponent implements OnInit {
   public birthday: Date = new Date(1993, 3, 19);
   public formName = new FormControl();
   public xbname: string;
-  
+  isopen:boolean = true;
   
   profileForm = new FormGroup({
     firstName: new FormControl(''),
@@ -31,13 +55,17 @@ export class ChildTestComponent implements OnInit {
  
   ngOnInit() {
     // this.getHttpData();
-    this.getHttpResponse();
+    // this.getHttpResponse();
   }
 
   @Input()
   set name(name: string) {
      this._name = name;
      console.log(this._name);
+  }
+
+  toggle() {
+    this.isopen = !this.isopen;
   }
    
   vote(): void {
@@ -67,4 +95,5 @@ export class ChildTestComponent implements OnInit {
       console.log(res);
     })
   }
+
 }

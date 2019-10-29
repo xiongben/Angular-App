@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { from, of, Observable,BehaviorSubject, Subject,ReplaySubject,AsyncSubject } from 'rxjs';
+import { from, of, Observable,BehaviorSubject, Subject,ReplaySubject,AsyncSubject,interval } from 'rxjs';
 import { timeout } from 'q';
 
 @Component({
@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
     // this.test3();
-    this.test5();
+    // this.test6();
   }
   onVoted(num: number){
     console.log(num);
@@ -172,5 +172,13 @@ export class DashboardComponent implements OnInit {
     subject.next(5);
     subject.complete();
   }
+
+  test6(){
+    var arr1 = [10,20,30];
+    // var res = from(arr1);
+    var res = interval(1000);
+    res.subscribe(x => console.log("from test:"+ x))
+  }
+
 
 }

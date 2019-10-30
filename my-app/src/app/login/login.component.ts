@@ -1,5 +1,6 @@
 import { Component, OnInit,Inject,forwardRef } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder,AbstractControl } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 interface validateResult {
   status?:string,
@@ -14,7 +15,10 @@ interface validateResult {
 
 export class LoginComponent implements OnInit {
   validateForm: FormGroup
-  constructor(@Inject(forwardRef(() => FormBuilder))private formBuilder :FormBuilder) { }
+  constructor(
+    @Inject(forwardRef(() => FormBuilder))private formBuilder :FormBuilder,
+    private router: Router
+  ) { }
 
   // ctrl(item: string): AbstractControl {
   //   return this.validateForm.controls[item]
@@ -35,7 +39,8 @@ export class LoginComponent implements OnInit {
     this.validateForm = this.formBuilder.group({
       password: ['', [this.passwordValidator]],
       mail: [ '', [this.emailValidator] ],
-    })
+    });
+    console.log(this.router);
   }
 
   private emailValidator = (control: FormControl):validateResult => {
@@ -57,7 +62,8 @@ export class LoginComponent implements OnInit {
   }
   
   submit(): void {
-    console.log(this.validateForm.value)
+    console.log(this.validateForm.value);
+    this.router.navigate(['/mainpage']);
   }
   
   reset(): void {

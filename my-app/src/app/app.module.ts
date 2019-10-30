@@ -13,9 +13,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChildTestComponent } from './child-test/child-test.component';
 import { HighlightDirective } from './highlight.directive';
 import { ForbiddenNameDirective } from './forbidden-name.directive';
+import { LoginComponent } from './login/login.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
 import { FlyingPipe } from './flying.pipe';
 import { from } from 'rxjs';
 import { ElModule } from 'element-angular'
+
+
 
 @NgModule({
    declarations: [
@@ -28,6 +32,8 @@ import { ElModule } from 'element-angular'
       HighlightDirective,
       ForbiddenNameDirective,
       FlyingPipe,
+      LoginComponent,
+      MainpageComponent,
    ],
    imports: [
       BrowserModule,
@@ -36,9 +42,7 @@ import { ElModule } from 'element-angular'
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
-      HttpClientModule,
-      
-      
+      HttpClientModule
    ],
    providers: [],
    bootstrap: [

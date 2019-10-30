@@ -40,6 +40,7 @@ export class ChildTestComponent implements OnInit {
   public formName = new FormControl();
   public xbname: string;
   isopen:boolean = true;
+  aa: number[] = [];
   
   profileForm = new FormGroup({
     firstName: new FormControl(''),
@@ -69,7 +70,7 @@ export class ChildTestComponent implements OnInit {
     this.isopen = !this.isopen;
   }
   handle($event){
-    
+
   }
   vote(): void {
     console.log("vote child");

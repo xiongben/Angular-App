@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { from, of, Observable,BehaviorSubject, Subject,ReplaySubject,AsyncSubject,interval } from 'rxjs';
+import {finalize, tap} from 'rxjs/operators';
 import { timeout } from 'q';
 
 @Component({
@@ -17,6 +18,7 @@ export class DashboardComponent implements OnInit {
  
   ngOnInit() {
     this.getHeroes();
+    this.test();
     // this.test3();
     // this.test6();
   }
@@ -31,7 +33,7 @@ export class DashboardComponent implements OnInit {
 
   test(): void {
     const aa = {"ss":22,"bb":55,"uu":[1,2,3.4]}
-    const myobservable = of(aa);
+    const myobservable = of(aa).pipe(event => of({"xxxx": 77777}));
     const myObserver = {
       next: x => console.log('Observer got a next value: ' + x),
       error: err => console.error('Observer got an error: ' + err),

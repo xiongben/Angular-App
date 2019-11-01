@@ -17,8 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { FlyingPipe } from './flying.pipe';
 import { from } from 'rxjs';
-import { ElModule } from 'element-angular'
-
+import { ElModule } from 'element-angular';
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 
 @NgModule({
@@ -44,7 +44,9 @@ import { ElModule } from 'element-angular'
       ReactiveFormsModule,
       HttpClientModule
    ],
-   providers: [],
+   providers: [
+      httpInterceptorProviders,
+   ],
    bootstrap: [
       AppComponent
    ]

@@ -1,9 +1,9 @@
-<el-container>
-  <el-header>
+<div>
+  <div>
     <el-alert type="success" [closable]="false">
       Welcome to here!
     </el-alert>
-  </el-header>
+  </div>
   <div class="mainpagebox">
     <div class="asidemenu">
         <div>
@@ -25,6 +25,7 @@
             </el-submenu>
             <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
             <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+            <el-menu-item index="3"><i class="el-icon-setting"><a routerLink="/dashboard">Dashboard</a></i></el-menu-item>
           </el-menu>
         </div>
     </div>
@@ -71,8 +72,5 @@
     </div>
     
   </el-main> -->
-  <el-footer>
-    <p>footer</p>
-  </el-footer>
-
-</el-container>
+  
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpTestService } from '../http-test.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-mainpage',
@@ -25,9 +27,12 @@ export class MainpageComponent implements OnInit {
   }];
   showdialog:boolean = false;
   dialogData:object = {};
-  constructor() { }
+  constructor(
+    private httpserver:HttpTestService
+  ) { }
 
   ngOnInit() {
+    this.getHttpData();
   }
 
   handle(item){
@@ -42,5 +47,12 @@ export class MainpageComponent implements OnInit {
     let itemdata = item.rowData;
     this.showdialog = true;
     this.dialogData = itemdata;
+  }
+  getHttpData(){
+    this.httpserver.getTestData().subscribe(
+      res => {
+        console.log(res);
+      }
+    )
   }
 }

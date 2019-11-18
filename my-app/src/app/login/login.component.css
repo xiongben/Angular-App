@@ -1,6 +1,16 @@
 .loginbox{
-    width: 1000px;
+    width: 100%;
     height: 600px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin: 0 auto;
+}
+.textbox{
+   width: 3.75rem;
+   height: 1rem;
+   background: blue;
+}
+.textbox1{
+    width: 1rem;
+   height: 1rem;
+   background: yellow;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit,Inject,forwardRef } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder,AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { environment } from './../../environments/environment';
 
 interface validateResult {
   status?:string,
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
       password: ['', [this.passwordValidator]],
       mail: [ '', [this.emailValidator] ],
     });
-    console.log(this.router);
+    console.log(environment);
   }
 
   private emailValidator = (control: FormControl):validateResult => {

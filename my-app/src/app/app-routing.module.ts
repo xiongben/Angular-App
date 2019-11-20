@@ -14,7 +14,7 @@ import { from } from 'rxjs';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', component:LoginComponent  },
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent ,canActivate: [AuthGuard]},

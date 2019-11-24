@@ -8,6 +8,7 @@ import { from } from 'rxjs';
   styleUrls: ['./mainpage.component.css']
 })
 export class MainpageComponent implements OnInit {
+
   tableData: any[] = [{
     name: '水爷',
     date: '2017-08-19',
@@ -27,6 +28,7 @@ export class MainpageComponent implements OnInit {
   }];
   showdialog:boolean = false;
   dialogData:object = {};
+  showtest:boolean = false;
   constructor(
     private httpserver:HttpTestService
   ) { }
@@ -54,5 +56,9 @@ export class MainpageComponent implements OnInit {
         console.log(res);
       }
     )
+  }
+
+  dialogtest(){
+    this.showtest = !this.showtest;
   }
 }

@@ -60,8 +60,6 @@
           </el-dialog>
         </div> -->
     </div>
-
-
   </div>
   <!-- <el-main>
     <div class="toolbar" role="banner">
@@ -73,5 +71,11 @@
     </div>
     
   </el-main> -->
-  
+  <el-button  (click)="dialogtest()">弹窗</el-button>
+</div>
+<div class="testbox" *ngIf="showtest">
+  <div class="sbox">
+    test box
+    <el-button  (click)="dialogtest()">弹窗</el-button>
+  </div>
 </div>

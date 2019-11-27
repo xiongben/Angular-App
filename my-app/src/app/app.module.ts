@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { ShowLogComponent } from './components/show-log/show-log.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChildTestComponent } from './child-test/child-test.component';
@@ -34,6 +35,7 @@ import { httpInterceptorProviders } from './http-interceptors/index';
       FlyingPipe,
       LoginComponent,
       MainpageComponent,
+      ShowLogComponent,
    ],
    imports: [
       BrowserModule,

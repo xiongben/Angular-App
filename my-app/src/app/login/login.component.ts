@@ -2,6 +2,10 @@ import { Component, OnInit,Inject,forwardRef } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder,AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { environment } from './../../environments/environment';
+import { MessageService } from './../message.service';
+
+
+
 
 interface validateResult {
   status?:string,
@@ -18,7 +22,8 @@ export class LoginComponent implements OnInit {
   validateForm: FormGroup
   constructor(
     @Inject(forwardRef(() => FormBuilder))private formBuilder :FormBuilder,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService,
   ) { }
 
   // ctrl(item: string): AbstractControl {
@@ -42,6 +47,10 @@ export class LoginComponent implements OnInit {
       mail: [ '', [this.emailValidator] ],
     });
     console.log(environment);
+  }
+
+  testMessService(){
+    this.messageService.changeMess("时间对");
   }
 
   private emailValidator = (control: FormControl):validateResult => {

@@ -15,6 +15,7 @@ export class ShowLogComponent implements OnInit {
 
   ngOnInit() {
     this.getMessData();
+    this.messageService.testObservable();
   }
 
   getMessData(){

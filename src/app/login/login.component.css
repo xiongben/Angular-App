@@ -21,3 +21,9 @@
     background: url("/assets/static/aa.png");
     background-size: 100%;
 }
+.imgbox2{
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+    background-size: 100%;
+}

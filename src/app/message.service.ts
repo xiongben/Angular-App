@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {of,BehaviorSubject,Observable} from 'rxjs';
+import {of,BehaviorSubject,Observable,Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,12 @@ export class MessageService {
   public data:any = new BehaviorSubject<string>('start');
   public data1:any = Observable.create(function subscribe(observer) {
     var id = setTimeout(()=>{
-      observer.next("hi");
+      observer.next("hi1");
+      observer.next("hi2");
+      observer.next("hi3");
     },3000);
   });
+  public subject1:any = new Subject();
   messages: string[] = [];
 
   add(message: string) {
@@ -39,5 +42,12 @@ export class MessageService {
   testObservable(){
     this.data1.subscribe(x => console.log("this is :" + x));
   }
+  
+  getsubject(){
+    return this.subject1;
+  }
 
+  testSubject(val){
+     this.subject1.next(val);
+  }
 }

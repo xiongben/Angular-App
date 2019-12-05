@@ -16,6 +16,8 @@ export class ShowLogComponent implements OnInit {
   ngOnInit() {
     this.getMessData();
     this.messageService.testObservable();
+    this.testSubject1();
+    this.testSubject2();
   }
 
   getMessData(){
@@ -24,6 +26,20 @@ export class ShowLogComponent implements OnInit {
       this.message = res;
     });
     
+  }
+
+  testSubject1(){
+    var subject = this.messageService.getsubject();
+    subject.subscribe({
+      next: (v) => {console.log('observe a:' + v)}
+    });
+  }
+
+  testSubject2(){
+    var subject = this.messageService.getsubject();
+    subject.subscribe({
+      next: (v) => {console.log('observe b:' + v)}
+    });
   }
 
 }

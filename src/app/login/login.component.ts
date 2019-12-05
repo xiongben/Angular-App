@@ -19,7 +19,8 @@ interface validateResult {
 })
 
 export class LoginComponent implements OnInit {
-  validateForm: FormGroup
+  validateForm: FormGroup;
+  subjectTestVal: string = "a";
   constructor(
     @Inject(forwardRef(() => FormBuilder))private formBuilder :FormBuilder,
     private router: Router,
@@ -51,6 +52,11 @@ export class LoginComponent implements OnInit {
 
   testMessService(){
     this.messageService.changeMess("时间对");
+  }
+
+  testMessSubject(){
+    this.subjectTestVal = this.subjectTestVal + "a";
+    this.messageService.testSubject(this.subjectTestVal);
   }
 
   private emailValidator = (control: FormControl):validateResult => {

@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
       mail: [ '', [this.emailValidator] ],
     });
     console.log(environment);
+    this.messageService.testmap();
   }
 
   testMessService(){

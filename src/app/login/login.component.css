@@ -14,3 +14,10 @@
    height: 1rem;
    background: yellow;
 }
+.imgbox{
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+    background: url("/assets/static/aa.png");
+    background-size: 100%;
+}
